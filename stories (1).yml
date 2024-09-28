@@ -1,0 +1,49 @@
+version: "3.1"
+
+
+
+stories:
+  
+  - story: check leave balance
+    steps: 
+      - intent: greet
+      - action: utter_greet
+      - intent: check_leave_balance
+      - action: action_check_leave_balance
+      
+  - story: check leave policy
+    steps: 
+      - intent: greet
+      - action: utter_greet
+      - intent: check_leave_policy
+      - action: action_check_leave_policy
+      
+  - story: check leave balance and policy
+    steps: 
+      - intent: greet
+      - action: utter_greet
+      - intent: check_leave_balance
+      - action: action_check_leave_balance
+      - intent: check_leave_policy
+      - action: action_check_leave_policy
+      - intent: provide_emp_id
+      - action: action_check_leave_policy
+
+  - story: check leave policy and balance
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: check_leave_policy
+      - action: action_check_leave_policy
+      - intent: provide_emp_id
+      - action: action_check_leave_policy
+      - intent: check_leave_balance
+      - action: action_check_leave_balance
+      
+
+  
+
+
+  
+
+  
