@@ -1,0 +1,51 @@
+version: "3.1"
+
+intents:
+  - greet
+  - check_leave_balance
+  - check_leave_policy
+  - provide_emp_id
+
+responses:
+  utter_greet:
+  - text: "Hello! How may I help you?"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_employee_id:
+  - text: "Please provide your employee ID (##-#######)"
+
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+entities:
+  - emp_id
+  - leave_type
+
+slots: 
+  emp_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: emp_id
+
+  leave_type: 
+    type: categorical
+    values: 
+      - Sick
+      - Emergency
+      - Personal
+      - Vacation
+
+    mappings: 
+      - type: from_entity
+        entity: leave_type
+
+actions:
+  - action_check_leave_balance
+  - action_check_leave_policy
+  
